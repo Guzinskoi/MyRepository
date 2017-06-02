@@ -7,11 +7,11 @@ class DetailedPrintVisitor extends StudentVisitor {
     }
 
     public function visitStudent($number, $student) {
-
-        
-        echo "$number. {$student->last_name}";
-
-
+        for($i = 0; $i < count($this->student_list); $i++) {
+            if(!empty($this->student_list)) {
+                echo "$number. {$student->last_name}";
+            }    
+        }
     }
 
     public function finishVisit() {
