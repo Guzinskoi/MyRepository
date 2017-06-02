@@ -16,3 +16,5 @@ class BriefPrintVisitor extends StudentVisitor {
     
 
 }
+
+// здесь краткую информацию выводить
