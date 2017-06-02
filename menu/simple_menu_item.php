@@ -1,5 +1,5 @@
 <?php
-include('menu.php');
+include('menu_item.php');
 
 class SimpleMenuItem extends MenuItem {
     private $command;

@@ -2,8 +2,7 @@
 
 abstract class MenuItem {
     
-    private $number;
-    private $title;
+    private $number, $title;
 
     public function __construct($number, $title) {
         $this->number = $number;
@@ -19,8 +18,8 @@ abstract class MenuItem {
     }
 
     public function print() {
-        echo $this->number.". ";
-        echo $this->title."<br/>";
+        echo ($this->number+1).". ";
+        echo $this->title."\n";
     }
 
     public abstract function execute();
