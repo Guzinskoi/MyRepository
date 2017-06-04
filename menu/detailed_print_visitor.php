@@ -1,17 +1,15 @@
 <?php
+include('student_visitor.php');
 
-class DetailedPrintVisitor extends StudentVisitor {
+class DetailedPrintVisitor implements StudentVisitor {
 
     public function startVisit() {
-        $this->visitor = $visitor;
+
     }
 
     public function visitStudent($number, $student) {
-        for($i = 0; $i < count($this->student_list); $i++) {
-            if(!empty($this->student_list)) {
-                echo "$number. {$student->last_name}";
-            }    
-        }
+        echo "$number";
+        $student->printLong(); 
     }
 
     public function finishVisit() {

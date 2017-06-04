@@ -1,5 +1,7 @@
 <?php
 
+include('detailed_print_visitor.php');
+
 class StudentRegistry {
 
     private $student_list = array();
@@ -42,10 +44,9 @@ class StudentRegistry {
     public function visitStudents($visitor) {
         $visitor->startVisit();
         for($i = 0; $i < count($this->student_list); $i++) {
-            $visitor->visitStudents($i, $this->student_list[$i]);
+            $visitor->visitStudent($i, $this->student_list[$i]);
         }
         $visitor->finishVisit();
-
     }
 
     public function save() {
