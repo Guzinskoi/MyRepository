@@ -5,14 +5,14 @@ class Student {
     public $last_name, $first_name, $middle_name, $group, $marks;
 
     public function printLong() {
-        print("Фамилия: ".$last_name);
-        print("Имя: ".$first_name);
-        print("Отчество: ".$middle_name);
-        print("Группа: ".$group);        
+        print("Фамилия: ".$this->last_name."\n");
+        print("Имя: ".$this->first_name."\n");
+        print("Отчество: ".$this->middle_name."\n");
+        print("Группа: ".$this->group."\n");        
     }
 
     public function printShort() {
-        print($last_name." ".$first_name." ".$middle_name." ".$group);
+        print($this->last_name."\n");
     }
 
     public function printSubjects() {

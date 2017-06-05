@@ -1,23 +1,30 @@
 <?php
-include('student_visitor.php');
+
+require_once('student_visitor.php');
+require_once('student.php');
+require_once('command/student_registry.php');
 
 class DetailedPrintVisitor implements StudentVisitor {
 
-    public function startVisit() {
+    public $flag;
 
-    }
+    public function startVisit() {        
+            $this->flag = false; 
+         }
 
     public function visitStudent($number, $student) {
-        echo "$number";
+        $this->flag = true;
+        $number ++;
+        echo "$number. ";
         $student->printLong(); 
     }
 
     public function finishVisit() {
-        
+        if(!$this->flag) {
+            echo "Нет студентов\n";
+        }            
     }
-
 }
-
 /*
 напичатать расшириную информацию о каждом студенте,
  а если студентов нет вывести соответствующее сообщение

@@ -1,20 +1,28 @@
 <?php
 
-class BriefPrintVisitor extends StudentVisitor {
+require_once('student.php');
+require_once('command/student_registry.php');
 
-    public function startVisit() {
-        
-    }
+class BriefPrintVisitor implements StudentVisitor {
+
+        public $flag;
+
+    public function startVisit() {        
+            $this->flag = false; 
+         }
 
     public function visitStudent($number, $student) {
-
+        $this->flag = true;
+        $number ++;
+        echo "$number. ";
+        $student->printShort(); 
     }
 
     public function finishVisit() {
-        
+        if(!$this->flag) {
+            echo "Нет студентов\n";
+        }            
     }
-    
-
 }
 
 // здесь краткую информацию выводить
