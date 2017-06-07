@@ -6,7 +6,7 @@ require_once('command/student_registry.php');
 require_once('brief_print_visitor.php');
 require_once('detailed_print_visitor.php');
 require_once('high_achiever_visitor.php');
-//require_once('low_achiever_visitor.php');
+require_once('low_achiever_visitor.php');
 
 
 $student = new Student();
@@ -34,7 +34,10 @@ $object_brief = new BriefPrintVisitor();
 StudentRegistry::getInstance()->visitStudents($object_brief);
 */
 
-$object_high_ach = new HighAchieverVisitor();
-StudentRegistry::getInstance()->visitStudents($object_high_ach);
+//$object_high_ach = new HighAchieverVisitor();
+//StudentRegistry::getInstance()->visitStudents($object_high_ach);
+
+$object_low_ach = new LowAchieverVisitor();
+StudentRegistry::getInstance()->visitStudents($object_low_ach);
 
 

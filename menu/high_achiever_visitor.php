@@ -5,26 +5,26 @@ require_once('command/student_registry.php');
 
 class HighAchieverVisitor implements StudentVisitor {
 
-     public $flag;
+    public $flag;
 
     public function startVisit() {        
             $this->flag = false; 
          }
 
     public function visitStudent($number, $student) {
-        $this->flag = true;
-        foreach($student->marks as $subject => $mark){ 
-            if($this->flag = true)           
-                if($mark !== 5) {
-                    $this->flag = false;
-                    break;
-                } 
-            }
-      
+        $flag = true;
+        foreach($student->marks as $subject => $mark){            
+            if($mark !== 5) {
+                $flag = false;
+                break;
+            } 
+        }
+        if($flag) {
+            $this->flag = true;
             $number ++;
             echo "$number. ";
             $student->printShort();
-                
+        }               
     }
 
     public function finishVisit() {
