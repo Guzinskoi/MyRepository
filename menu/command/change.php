@@ -1,4 +1,5 @@
 <?php
+require_once('command.php');
 
 class Change implements Command {
     

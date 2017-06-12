@@ -23,7 +23,7 @@ $student->last_name = "Петров";
 $student->first_name = "Петр";
 $student->middle_name = "Петрович";
 $student->group = "Другая группа";
-$student->marks = array("мат"=>4, "рус"=>2, "инглиш"=>5);
+$student->marks = array("мат"=>4, "рус"=>5, "инглиш"=>5);
 
 StudentRegistry::getInstance()->addStudent($student);
 

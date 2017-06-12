@@ -12,12 +12,12 @@ class LowAchieverVisitor implements StudentVisitor {
          }
 
     public function visitStudent($number, $student) {
-        $flag = true;
+        $flag = false;
         foreach($student->marks as $subject => $mark){            
-            if($mark !== 2) {
-                $flag = false;
+            if($mark < 3) {
+                $flag = true;
                 break;
-            } 
+            }
         }
         if($flag) {
             $this->flag = true;
@@ -33,4 +33,3 @@ class LowAchieverVisitor implements StudentVisitor {
         }            
     }
 }
-//студент у которого хотя бы одна оценка ниже "3"
