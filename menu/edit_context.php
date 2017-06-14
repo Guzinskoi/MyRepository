@@ -15,5 +15,4 @@ class EditContext {
         }
         return EditContext::$instance;
     }
-
 }

@@ -9,7 +9,7 @@ class SelectStudentCommand implements Command {
         $list_students = new BriefPrintVisitor();
         StudentRegistry::getInstance()->visitStudents($list_students);
 
-        $num_student = readline("Введите номер студента: ");
-        EditContext::getInstance()->student($num_student - 1);
+        $student = readline("Введите номер студента: ");
+        EditContext::getInstance()->student = StudentRegistry::getInstance()->getStudent($number - 1);
     }
 }

@@ -48,9 +48,3 @@ class Menu extends MenuItem {
         } while ($this->select());
     }           
 }
-include('command/add.php');
-
-$test = new Menu();
-$test->addItem("Привет мир", new Add());
-$test->addItem("Привет мир 2", new Change());
-$test->execute();
