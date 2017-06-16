@@ -5,9 +5,24 @@ include('simple_menu_item.php');
 class Menu extends MenuItem {
 
     private $items = array();
+    private $startup_command = null;
+    private $before_select_command = null;
+    private $tear_down_command = null;
 
     public function __construct($number = 0, $title = "") {
         parent:: __construct($number, $title);
+    }
+
+    public function setStartupCommand($startup_command) {
+        $this->startup_command = $startup_command;    
+    }
+
+    public function setBeforeSelectCommand($before_select_command) {
+        $this->before_select_command = $before_select_command;
+    }
+
+     public function setTearDownCommand($tear_down_command) {
+        $this->tear_down_command = $tear_down_command;
     }
 
     public function addItem($title, $command) {
@@ -43,8 +58,20 @@ class Menu extends MenuItem {
     }
 
     public function execute(){
+        if($this->startup_command !== null) {
+            $this->startup_command->execute();
+        }
+
         do {
+            if($this->before_select_command !== null) {
+                $this->before_select_command->execute();
+            }
+
             $this->printMenu();
         } while ($this->select());
+
+        if($this->tear_down_command !== null) {
+            $this->tear_down_command->execute();
+        }
     }           
 }

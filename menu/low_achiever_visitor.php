@@ -3,7 +3,7 @@
 require_once('student.php');
 require_once('command/student_registry.php');
 
-class LowAchieverVisitor implements StudentVisitor {
+class ShowLowAchieverVisitor implements StudentVisitor {
 
     public $flag;
 
