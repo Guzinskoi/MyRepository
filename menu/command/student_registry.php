@@ -16,7 +16,7 @@ class StudentRegistry {
             StudentRegistry::$instance = new StudentRegistry();
         }
         return StudentRegistry::$instance;
-    } 
+    }
 
     public function addStudent($student) {
         $this->student_list[] = $student;
@@ -24,7 +24,6 @@ class StudentRegistry {
 
     public function getStudent($number) {
         return $this->student_list[$number];
-
     }
 
     public function removeStudent($number) {
@@ -52,7 +51,7 @@ class StudentRegistry {
     public function save() {
 
     }
-    
+
     private function load() {
 
     }

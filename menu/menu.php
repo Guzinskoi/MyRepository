@@ -14,7 +14,7 @@ class Menu extends MenuItem {
     }
 
     public function setStartupCommand($startup_command) {
-        $this->startup_command = $startup_command;    
+        $this->startup_command = $startup_command;
     }
 
     public function setBeforeSelectCommand($before_select_command) {
@@ -31,9 +31,9 @@ class Menu extends MenuItem {
     }
 
     public function addSubmenu($title) {
-        $menu = new Menu(count($this->items),$title);
-        $this->items[] = $menu;
-        return $menu;
+          $menu = new Menu(count($this->items),$title);
+          $this->items[] = $menu;
+          return $menu;
     }
 
     private function printMenu() {
@@ -48,13 +48,13 @@ class Menu extends MenuItem {
         $number = readline("Введите номер пункта: ");
         while ($number <= 0 || ($number  > (count($this->items) + 1))){
             $number = readline("Введите номер пункта: ");
-        }            
+        }
         if( $number == (count($this->items) + 1)) {
             return false;
         } else {
             $this->items[$number - 1]->execute();
             return true;
-        }            
+        }
     }
 
     public function execute(){
@@ -73,5 +73,5 @@ class Menu extends MenuItem {
         if($this->tear_down_command !== null) {
             $this->tear_down_command->execute();
         }
-    }           
+    }
 }

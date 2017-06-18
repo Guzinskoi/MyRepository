@@ -8,24 +8,20 @@ class DetailedPrintVisitor implements StudentVisitor {
 
     public $flag;
 
-    public function startVisit() {        
-            $this->flag = false; 
+    public function startVisit() {
+            $this->flag = false;
          }
 
     public function visitStudent($number, $student) {
         $this->flag = true;
         $number ++;
         echo "$number. ";
-        $student->printLong(); 
+        $student->printLong();
     }
 
     public function finishVisit() {
         if(!$this->flag) {
             echo "Нет студентов\n";
-        }            
+        }
     }
 }
-/*
-напичатать расшириную информацию о каждом студенте,
- а если студентов нет вывести соответствующее сообщение
-*/

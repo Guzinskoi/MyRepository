@@ -27,17 +27,19 @@ $menu->addItem("удалить студента", new DeleteStudentCommand());
 $menu->addItem("Список отличников", new ShowHighAchieversCommand());
 $menu->addItem("Список должников", new ShowLowAchieversCommand());
 
-$submenu->addItem("Изменить фамилию", new EditLastNameCommand());
-$submenu->addItem("Изменить имя", new EditFirstNameCommand());
-$submenu->addItem("Изменить отчество", new EditMiddleNameCommand());
-$submenu->addItem("Изменить группу", new EditGroupCommand());
-$submenu->addItem("Добавить оценку", new AddMarkCommand());
-$submenu->addItem("Изменить оценку", new EditMarkCommand());
-$submenu->addItem("Удалить оценку", new DeleteMarkCommand());
-$submenu->addItem("Удалить все оценки", new ClearMarkCommand());
+if(StudentRegistry::getInstance()->getStudentCount() !== 0) {
+  $submenu->addItem("Изменить фамилию", new EditLastNameCommand());
+  $submenu->addItem("Изменить имя", new EditFirstNameCommand());
+  $submenu->addItem("Изменить отчество", new EditMiddleNameCommand());
+  $submenu->addItem("Изменить группу", new EditGroupCommand());
+  $submenu->addItem("Добавить оценку", new AddMarkCommand());
+  $submenu->addItem("Изменить оценку", new EditMarkCommand());
+  $submenu->addItem("Удалить оценку", new DeleteMarkCommand());
+  $submenu->addItem("Удалить все оценки", new ClearMarkCommand());
+}
 
-$submenu->setStartupCommand(new SelectStudentCommand());
-$submenu->setBeforeSelectCommand(new ShowSelectedCommand());
-$submenu->setTearDownCommand(new DeselectStudentCommand());
+  $submenu->setStartupCommand(new SelectStudentCommand());
+  $submenu->setBeforeSelectCommand(new ShowSelectedCommand());
+  $submenu->setTearDownCommand(new DeselectStudentCommand());
 
 $menu->execute();
