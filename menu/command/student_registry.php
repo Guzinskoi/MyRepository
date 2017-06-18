@@ -1,7 +1,5 @@
 <?php
 
-include('detailed_print_visitor.php');
-
 class StudentRegistry {
 
     private $student_list = array();

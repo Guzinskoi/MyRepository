@@ -4,7 +4,6 @@ require_once('student.php');
 require_once('command/student_registry.php');
 require_once('brief_print_visitor.php');
 require_once('edit_context.php');
-require_once('menu_item.php');
 
 class SelectStudentCommand implements Command {
 
@@ -14,7 +13,7 @@ class SelectStudentCommand implements Command {
             StudentRegistry::getInstance()->visitStudents($student_list);
 
             $number = readline("Введите номер студента: ");
-            EditContext::getInstance()->number = StudentRegistry::getInstance()->getStudent($number - 1);
+            EditContext::getInstance()->student = StudentRegistry::getInstance()->getStudent($number - 1);
         } else {
             echo "Студентов нет\n";
         }

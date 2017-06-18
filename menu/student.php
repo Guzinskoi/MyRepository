@@ -8,7 +8,10 @@ class Student {
         print("Фамилия: ".$this->last_name."\n");
         print("Имя: ".$this->first_name."\n");
         print("Отчество: ".$this->middle_name."\n");
-        print("Группа: ".$this->group."\n");        
+        print("Группа: ".$this->group."\n");
+        foreach($this->marks as $subject => $mark){
+            echo "$subject: $mark\n";
+        }
     }
 
     public function printShort() {

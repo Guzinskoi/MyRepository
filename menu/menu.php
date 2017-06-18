@@ -75,3 +75,4 @@ class Menu extends MenuItem {
         }
     }
 }
+//while ($number <= 0 || ($number  > (StudentRegistry::getInstance()->getStudentCount())))

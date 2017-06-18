@@ -7,8 +7,6 @@ require_once('edit_context.php');
 class DeselectStudentCommand implements Command {
 
     public function execute() {
-      if(StudentRegistry::getInstance()->getStudentCount() !== 0) {
         EditContext::getInstance()->student = null;
-      }
     }
 }
