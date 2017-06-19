@@ -47,17 +47,27 @@ class StudentRegistry {
     }
 
     public function save() {
-        for($i = 0, $i <= $student_count->getStudentCount(), $i++) {
-            //->getStudent();
+        $students = array();
+        for($i = 0; $i <= $this->getStudentCount(); $i++) {
+           $s = $this->getStudent($i);
+           $stud = array("last_name" => $s->last_name, "first_name" => $s->first_name, "middle_name" => $s->middle_name, "group" => $s->group, "marks"  => $s->marks);
+           $students[] = $stud;
         }
         $f = fopen(config.json, "w");
-        fwrite($f, json_encode($this->student_list));
+        fwrite($f, json_encode($students));
         fclose($f);
     }
 
     private function load() {
         $f = fopen(config.json, "r");
-        fread($f, json_decode($this->student_list));
+        fread($f, json_decode($students));
+        $students = array();
         fclose($f);
+        for($i = 0; $i <= $this->getStudentCount(); $i++) {
+           $s = $this->getStudent($i);
+           $stud = array("last_name" => $this->last_name, "first_name" => $this->first_name, "middle_name" => $s->middle_name, "group" => $s->group, "marks"  => $s->marks);
+           $students[] = $stud;
+        }
+
     }
 }
