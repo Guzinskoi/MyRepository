@@ -14,7 +14,7 @@ class HighAchieverVisitor implements StudentVisitor {
     public function visitStudent($number, $student) {
         $flag = true;
         foreach($student->marks as $subject => $mark){            
-            if($mark !== 5) {
+            if($mark != 5) {
                 $flag = false;
                 break;
             } 
@@ -22,13 +22,13 @@ class HighAchieverVisitor implements StudentVisitor {
         if($flag) {
             $this->flag = true;
             $number ++;
-            echo "$number. ";
+            echo "$number";
             $student->printShort();
         }               
     }
 
     public function finishVisit() {
-        if($this->flag == false) {
+        if(!$this->flag) {
             echo "Нет отличников\n";
         }            
     }

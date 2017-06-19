@@ -10,17 +10,17 @@ class Student {
         print("Отчество: ".$this->middle_name."\n");
         print("Группа: ".$this->group."\n");
         foreach($this->marks as $subject => $mark){
-            echo "$subject: $mark\n";
+            echo "$subject: $mark.\n";
         }
     }
 
     public function printShort() {
-        print($this->last_name."\n");
+        print($this->last_name." ".$this->first_name." ".$this->middle_name."\n");
     }
 
     public function printSubjects() {
         foreach($this->marks as $subject => $mark){
-            echo "$subject\n";
+            echo "$subject.\n";
         }
     }
 }

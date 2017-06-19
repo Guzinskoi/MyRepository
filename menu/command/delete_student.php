@@ -10,6 +10,6 @@ class DeleteStudentCommand implements Command {
         StudentRegistry::getInstance()->visitStudents($list_students);
 
         $number = readline("Введите номер студента: ");
-        StudentRegistry::getInstance()->visitStudents($number - 1);
+        StudentRegistry::getInstance()->removeStudent($number - 1);
     }
 }

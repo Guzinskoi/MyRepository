@@ -3,7 +3,7 @@
 require_once('student.php');
 require_once('command/student_registry.php');
 
-class ShowLowAchieverVisitor implements StudentVisitor {
+class LowAchieverVisitor implements StudentVisitor {
 
     public $flag;
 
@@ -22,7 +22,7 @@ class ShowLowAchieverVisitor implements StudentVisitor {
         if($flag) {
             $this->flag = true;
             $number ++;
-            echo "$number. ";
+            echo "$number";
             $student->printShort();
         }               
     }

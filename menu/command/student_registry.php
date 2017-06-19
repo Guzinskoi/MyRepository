@@ -47,10 +47,17 @@ class StudentRegistry {
     }
 
     public function save() {
-
+        for($i = 0, $i <= $student_count->getStudentCount(), $i++) {
+            //->getStudent();
+        }
+        $f = fopen(config.json, "w");
+        fwrite($f, json_encode($this->student_list));
+        fclose($f);
     }
 
     private function load() {
-
+        $f = fopen(config.json, "r");
+        fread($f, json_decode($this->student_list));
+        fclose($f);
     }
 }
