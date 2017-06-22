@@ -61,13 +61,11 @@ class StudentRegistry {
     private function load() {
         $f = fopen(config.json, "r");
         fread($f, json_decode($students));
-        $students = array();
         fclose($f);
         for($i = 0; $i <= $this->getStudentCount(); $i++) {
            $s = $this->getStudent($i);
-           $stud = array("last_name" => $this->last_name, "first_name" => $this->first_name, "middle_name" => $s->middle_name, "group" => $s->group, "marks"  => $s->marks);
-           $students[] = $stud;
+           $stud = array("last_name" => $this->last_name, "first_name" => $this->first_name, "middle_name" => $this->middle_name, "group" => $this->group, "marks"  => $this->marks);
+           $this->student_list[] = $stud;
         }
-
     }
 }
