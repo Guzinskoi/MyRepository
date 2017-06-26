@@ -7,5 +7,6 @@ class EditLastNameCommand implements Command {
     
     public function execute() {
         EditContext::getInstance()->student->last_name = readline("Введите фамилию студента: ");
+        StudentRegistry::getInstance()->save();
     }
 }

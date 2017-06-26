@@ -1,5 +1,8 @@
 <?php
 
+require_once('student.php');
+require_once('command.php');
+
 class StudentRegistry {
 
     private $student_list = array();
@@ -48,24 +51,34 @@ class StudentRegistry {
 
     public function save() {
         $students = array();
-        for($i = 0; $i <= $this->getStudentCount(); $i++) {
+        for($i = 0; $i < $this->getStudentCount(); $i++) {
            $s = $this->getStudent($i);
            $stud = array("last_name" => $s->last_name, "first_name" => $s->first_name, "middle_name" => $s->middle_name, "group" => $s->group, "marks"  => $s->marks);
            $students[] = $stud;
         }
-        $f = fopen(config.json, "w");
+        $f = fopen("config.json", "w");
         fwrite($f, json_encode($students));
         fclose($f);
     }
 
-    private function load() {
-        $f = fopen(config.json, "r");
-        fread($f, json_decode($students));
+    public function load() {
+        
+        $f = fopen("config.json", "r");
+        $students =  fread($f, filesize("config.json"));
+        $students = json_decode($students);
         fclose($f);
-        for($i = 0; $i <= $this->getStudentCount(); $i++) {
-           $s = $this->getStudent($i);
-           $stud = array("last_name" => $this->last_name, "first_name" => $this->first_name, "middle_name" => $this->middle_name, "group" => $this->group, "marks"  => $this->marks);
-           $this->student_list[] = $stud;
+        foreach($students as $value) {
+            $student = new Student();
+            $student->last_name = $value->last_name;
+            $student->first_name = $value->first_name;
+            $student->middle_name = $value->middle_name;
+            $student->group = $value->group;
+            $student->marks = array();
+            foreach($value->marks as $subject => $mark){
+                $student->marks[$subject] = $mark;
+            }
+
+            $this->addStudent($student);
         }
     }
 }

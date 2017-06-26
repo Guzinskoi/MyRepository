@@ -7,5 +7,6 @@ class EditFirstNameCommand implements Command {
     
     public function execute() {
         EditContext::getInstance()->student->first_name = readline("Введите имя студента: ");
+        StudentRegistry::getInstance()->save();
     }
 }

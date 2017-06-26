@@ -40,4 +40,6 @@ $submenu->setStartupCommand(new SelectStudentCommand());
 $submenu->setBeforeSelectCommand(new ShowSelectedCommand());
 $submenu->setTearDownCommand(new DeselectStudentCommand());
 
+StudentRegistry::getInstance()->load();
 $menu->execute();
+

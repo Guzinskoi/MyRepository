@@ -13,5 +13,6 @@ class EditMarkCommand implements Command {
           $subject = readline("Введите название предмета: ");
         }
           EditContext::getInstance()->student->marks[$subject] = readline("Введите оценку: ");
+          StudentRegistry::getInstance()->save();
     }
 }

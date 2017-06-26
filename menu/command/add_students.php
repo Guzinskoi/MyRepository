@@ -14,5 +14,6 @@ class AddStudentCommand implements Command {
         $student->marks = array();
 
         StudentRegistry::getInstance()->addStudent($student);
+        StudentRegistry::getInstance()->save();
     }
 }

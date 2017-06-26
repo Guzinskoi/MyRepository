@@ -22,7 +22,7 @@ class LowAchieverVisitor implements StudentVisitor {
         if($flag) {
             $this->flag = true;
             $number ++;
-            echo "$number";
+            echo "$number.";
             $student->printShort();
         }               
     }

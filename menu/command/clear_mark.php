@@ -7,7 +7,11 @@ class ClearMarkCommand implements Command {
     
     public function execute() {
         EditContext::getInstance()->student->printSubjects();
-
-        EditContext::getInstance()->student->marks = array();            
+        
+        $clear = readline("Вы уверены что хотите отчистить список оценок? Y/n:");
+        if($clear == "Y" || $clear == "y") {
+            EditContext::getInstance()->student->marks = array();
+            StudentRegistry::getInstance()->save();
+       }                  
     }
 }

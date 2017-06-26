@@ -13,5 +13,6 @@ class DeleteMarkCommand implements Command {
           $subject = readline("Введите название предмета: ");
         }
         unset(EditContext::getInstance()->student->marks[$subject]);
+        StudentRegistry::getInstance()->save();
     }
 }

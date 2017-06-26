@@ -17,5 +17,6 @@ class AddMarkCommand implements Command {
                 echo "Неправильное название предмета";
             }                
         }
+        StudentRegistry::getInstance()->save();
     }
 }

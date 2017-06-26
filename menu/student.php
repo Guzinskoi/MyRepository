@@ -20,7 +20,7 @@ class Student {
 
     public function printSubjects() {
         foreach($this->marks as $subject => $mark){
-            echo "$subject.\n";
+            echo "$subject: $mark\n";
         }
     }
 }

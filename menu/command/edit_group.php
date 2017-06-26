@@ -7,5 +7,6 @@ class EditGroupCommand implements Command {
     
     public function execute() {
         EditContext::getInstance()->student->group = readline("Введите группу студента: ");
+        StudentRegistry::getInstance()->save();
     }
 }
